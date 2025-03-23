@@ -64,7 +64,7 @@ const Footer = () => {
           <ul>
             <li className="contact-link text-[#144273]">
               <span>Tél :</span>
-              <a href="tel:+21625743292" className="text-[#144273]">+216 25 743 292</a>
+              <a href="tel:+21625743292" className="text-[#144273]">+216 99 103 052</a>
             </li>
             <li className="contact-link text-[#144273]">
               <span>Email :</span>
