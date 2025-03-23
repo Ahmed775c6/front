@@ -31,9 +31,11 @@ const Footer = () => {
       </div>
       <div className="down">
         <div className="logos footer-helpful-links">
-          <h3 className="footer-logo">Parashop</h3>
+          <h3 className="footer-logo uppercase " onClick={()=> {
+            window.location.href = '/'
+          }}>all tunisia para</h3>
           <p>
-          AllParaPharmacie.tn est N°1 parapharmacie en ligne en Tunisie. Vous trouverez chez Pharma-shop.tn tous vos produits parapharmaceutique (santé, beauté, minceur...)
+          ALLPARAPHARMACIE est N°1 parapharmacie en ligne en Tunisie. Vous trouverez chez alltunisiapara.com  tous vos produits parapharmaceutique (santé, beauté, minceur...)
           </p>
  
         </div>
@@ -68,7 +70,7 @@ const Footer = () => {
             </li>
             <li className="contact-link text-[#144273]">
               <span>Email :</span>
-              <a href="mailto:ahmed.chouikh2020@gmail.com" className="text-[#144273]">parashop@gmail.com</a>
+              <a href="mailto:ahmed.chouikh2020@gmail.com" className="text-[#144273]">ALLPARAPHARMACIE@gmail.com</a>
             </li>
           </ul>
         </div>
