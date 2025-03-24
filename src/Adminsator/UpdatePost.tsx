@@ -3,7 +3,7 @@ import { handelUpload } from '../Logic/UploadFile';
 import { useEffect, useState } from 'react';
 import Themes from '../components/AdmiComponents/Themes';
 import Aside from '../components/AdmiComponents/Aside';
-import MyEditor101 from '../components/AdmiComponents/BlogTXT';
+
 import axios from 'axios';
 import MyComponent from '../components/Frame';
 import { useLocation } from 'react-router-dom';
