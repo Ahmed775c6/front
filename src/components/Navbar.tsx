@@ -101,7 +101,7 @@ const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
         <div className="blog-link link">
           <i className="fas fa-book"></i>
           <p>
-            <a href="/blog">Our Blog</a>
+            <a href="/blog">notre blog</a>
           </p>
         </div>
 {
