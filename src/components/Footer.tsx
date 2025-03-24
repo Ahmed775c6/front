@@ -23,7 +23,7 @@ const Footer = () => {
               <p>Prix d'un appel local.</p>
               <p>
                 Disponible du lundi au vendredi de 9h à 19h et le samedi matin de 9h à 12h.
-                Vous pouvez aussi consulter notre FAQ.
+                Vous pouvez aussi consulter notre <a href="/legal" className="text-blue-500">FAQ</a>.
               </p>
             </div>
           </div>
@@ -35,7 +35,7 @@ const Footer = () => {
             window.location.href = '/'
           }}>all tunisia para</h3>
           <p>
-          ALLPARAPHARMACIE est N°1 parapharmacie en ligne en Tunisie. Vous trouverez chez alltunisiapara.com  tous vos produits parapharmaceutique (santé, beauté, minceur...)
+          ALLTUNISIAPARA est N°1 parapharmacie en ligne en Tunisie. Vous trouverez chez alltunisiapara.com  tous vos produits parapharmaceutique (santé, beauté, minceur...)
           </p>
  
         </div>
@@ -70,14 +70,14 @@ const Footer = () => {
             </li>
             <li className="contact-link text-[#144273]">
               <span>Email :</span>
-              <a href="mailto:ahmed.chouikh2020@gmail.com" className="text-[#144273]">ALLPARAPHARMACIE@gmail.com</a>
+              <a href="mailto:ahmed.chouikh2020@gmail.com" className="text-[#144273]">ALLTUNISIAPARA@gmail.com</a>
             </li>
           </ul>
         </div>
       </div>
       <footer>
         <div className="copy-right">
-          <span>All rights Reserved © AllParaPharmacie </span>
+          <span>All rights Reserved © ALLTUNISIAPARA </span>
           <div className="questions-marks">
             <ul>
               <li><a href="/Comment_commander">Comment commander ?</a></li>
