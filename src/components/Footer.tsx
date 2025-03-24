@@ -1,17 +1,49 @@
-
+import axios from "axios";
+import { useState } from "react";
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 const Footer = () => {
+  const [l,setL] = useState(false)
+  const [m,setM] =useState('')
+  const [n,setN] = useState('')
+  const [s,setS] = useState('')
   return (
     <div className="footer w-full max-w-full">
       <div className="up">
         <div className="left-up">
           <h5>Abonnez-Vous À Notre Newsletter</h5>
-          <p className="max-w-full ">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ab laboriosam aspernatur eius, aperiam illum porro voluptate distinctio esse sed neque officiis sint, asperiores facere eaque quisquam tenetur nam aliquid.
+          {s != ""  ? <span className="text-emerald-500 " >abonné avec succès ✓</span> : null}
+          <p className="max-w-full  ">
+          Ne manquez rien ! ✨
+Abonnez-vous à notre newsletter et bénéficiez en avant-première :
+
+
           </p>
+          <div className="w-full flex-col gap-2 max-w-full">
+          ✓ Des mises à jour en temps réel
+✓ Les dernières sorties de produits
+✓ Des promotions exclusives
+✓ Des contenus inédits
+… et bien plus encore, directement dans votre boîte mail !
+          </div>
           <div className="footer-mail">
-            <input type="email" placeholder="Votre Adresse email ..." />
-            <button>S'abonner</button>
+         <form onSubmit={async(e)=> {
+          e.preventDefault()
+          try{
+            setL(true)
+            await axios.post(`${baseUrl}/SubSr`, {name : n , email : m});
+            setS('true');
+            setL(false)
+          }catch(err){
+            setL(false)
+          alert('something went wrong please refresh & try again')
+          }
+
+         }} className="w-full flex flex-col gap-2">
+          <input type="text" placeholder="votre nom complet ..." value={n} onChange={(e:any)=>{setN(e.target.value) ; setS('')}} />
+         <input type="email" placeholder="Votre Adresse email ..." value={m} onChange={(e:any)=>{setM(e.target.value); setS('')}}/>
+         <button type="submit" className={l ? 'cursor-not-allowed' : 'cursor-pointer'} disabled = {l}>{l ? "S'abonner en cours .." : "S'abonner"}</button>
+         </form>
           </div>
         </div>
         <div className="right-up">

@@ -32,7 +32,7 @@ const [Changing,setChanging] = useState(false);
   const [title, setTitle] = useState<string>('Title');
 
   const [Dicrtiption, setDescription] = useState<string>('Discription goes here ...');
-  const [image, setImage] = useState<any> ("/src/assets/empty.jpg");
+  const [image, setImage] = useState<any> ("/assets/empty.jpg");
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 const [load,setLoad] = useState(false)
 
