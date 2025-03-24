@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="up">
         <div className="left-up">
           <h5>Abonnez-Vous À Notre Newsletter</h5>
-          {s != ""  ? <span className="text-emerald-500 " >abonné avec succès ✓</span> : null}
+          {s != ""  ? <span className="text-emerald-500 " >{s} ✓</span> : null}
           <p className="max-w-full  ">
           Ne manquez rien ! ✨
 Abonnez-vous à notre newsletter et bénéficiez en avant-première :
@@ -31,8 +31,8 @@ Abonnez-vous à notre newsletter et bénéficiez en avant-première :
           e.preventDefault()
           try{
             setL(true)
-            await axios.post(`${baseUrl}/SubSr`, {name : n , email : m});
-            setS('true');
+           const res = await axios.post(`${baseUrl}/SubSr`, {name : n , email : m});
+            setS(res.data.message);
             setL(false)
           }catch(err){
             setL(false)
