@@ -6066,3 +6066,20 @@ background-position: center center;
     height: 350px !important;
     object-fit: contain !important;
 }
+.big_image img{
+object-fit: contain !important;
+}
+@media screen and (max-width: 950px) {
+    .product_over {
+        /* grid-template-columns: repeat(1, 1fr); */
+        display: flex;
+        flex-direction: column;
+    }
+    .price_and_ava {
+      flex-direction: column;
+      gap: 20px;
+    }
+}
+.fsdsfaa{
+    flex-wrap: wrap;
+}
