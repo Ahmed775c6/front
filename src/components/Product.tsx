@@ -53,7 +53,7 @@ const dipatch = useDispatch();
     <>
       {C ? <Placed setC={setC} /> : ""}
       <motion.div layout className="product2">
-        <div className="product_img max-h-[60%] bg-white">
+        <div className="product_img  bg-white">
           <img
             src={product.mainImage} // Updated to use mainImage
             alt={product.name }
