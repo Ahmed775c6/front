@@ -235,6 +235,7 @@ F();
           </ul>
         </div>
    <ProductGrid products={products} activePromoTab={activePromoTab} setShowItem={setShowItem}  />
+   
         <div className="about-us bg-white ">
         <div className="col-inner">
   <h1>PARAPHARMACIE ALL TUNISIA PARA</h1>

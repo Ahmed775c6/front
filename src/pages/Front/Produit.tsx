@@ -322,7 +322,7 @@ console.log(item)
                 rows={10}
               />
               
-              <button type="submit" disabled = {ls} className="bg-[#144273] p-2 text-white outline-none border-none rounded-md cursor-pointer">{ls ?'loading ..' : 'Submit' }</button>
+              <button type="submit" disabled = {ls} className="bg-[#144273] p-2 text-white outline-none border-none rounded-md cursor-pointer">{ls ?'envoi en cours..' : 'envoyé' }</button>
             </form>
           </div>
         </>
