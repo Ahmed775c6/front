@@ -6064,4 +6064,5 @@ background-position: center center;
 }
 .product2 .product_img img{
     height: 350px !important;
+    object-fit: contain !important;
 }
