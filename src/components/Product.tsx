@@ -57,6 +57,7 @@ const dipatch = useDispatch();
           <img
             src={product.mainImage} // Updated to use mainImage
             alt={product.name }
+            className="max-h-[60%] object-cover h-[60%]"
           />
           <div className="actions z-20">
             <i
