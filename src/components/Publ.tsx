@@ -64,7 +64,7 @@ const [C,setC] = useState(false);
 <>
 {C ? <Placed setC={setC} /> : ""}
 {error && <div className="error hidden">{error}</div>}
-<section className={`publiciteé ${Publll && data ? 'bg-white' : ''}`} >
+<section className={`publiciteé ${data?.length >0 || Publll?.length > 0 ? 'bg-white' : ''}`} >
       <div className="two-splits">
         {
           Publll  && Publll.length > 0 ? (
