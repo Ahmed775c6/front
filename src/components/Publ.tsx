@@ -90,10 +90,10 @@ const [C,setC] = useState(false);
      
           </div>
           <div className="displayed-command p-2 w-full ">
-            <div className="small-images ">
+            <div className="small-images">
           {
             data?.map((pr:any,index :any)=>(
-                <img src={pr.mainImage} alt={`pr-${index}`} className="w-32  h-32" key={index} onClick={()=>{
+                <img src={pr.mainImage} alt={`pr-${index}`} className="w-40 transition-all  object-contain  bg-white  h-40" key={index} onClick={()=>{
                     setIndex(index);
                     setCurrent(pr);
                   
@@ -107,11 +107,11 @@ const [C,setC] = useState(false);
               window.location.href = `/ViewProduct?id=${current._id}`
             }} >
     {
-            current?.discount > 0 ?   <span className="purcentage absolute top-5 left-2 z-10 bg-rose-100 text-rose-500 px-2 rounded-full text-xs font-medium">
+            current?.discount > 0 ?   <span className="purcentage absolute top-5 left-5 z-10 bg-rose-100 text-rose-500 px-2 rounded-full text-xs font-medium">
           ⚡  {current?.discount} %
           </span> : null
           }
-     <img src={current?.mainImage} className="w-full min-w-full" alt="big-boy" />
+     <img src={current?.mainImage} className="w-full min-w-full max-h-[500px]  transition-all object-contain bg-white" alt="big-boy" />
      <CountdownTimer expirationDate={current?.expiration}/>
             
             <div className="w-full flex flex-col gap-2 p-2 bg-blue-100" >

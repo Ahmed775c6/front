@@ -123,7 +123,7 @@ F();
           </div>
         </div>
         <div className="visage-main">
-          <div className="max-w-[300px] rounded-sm h-[380px]">
+          <div className="visage-image">
             <img src="/assets/face.png" alt="" className=" rounded-sm h-full min-h-full" />
           </div>
           <div className="w-full flex  gap-3 overflow-hidden" id="shopContainer" ref={scrollContainerRef} key="shopContainer">
@@ -134,7 +134,7 @@ F();
       activeVisageTab.toLowerCase() === product.sous.toLowerCase()
     ) {
       return (
-        <div className="w-full min-w-[350px] max-w-[350px]" key={product._id}>
+        <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={product._id}>
           <Product product={product} seti={setShowItem} />
         </div>
       );
@@ -197,7 +197,7 @@ F();
       activeCheveauTab.toLowerCase() === product.sous.toLowerCase()
     ) {
       return (
-        <div className="w-full min-w-[350px] max-w-[350px]" key={product.id}>
+        <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={product.id}>
           <Product product={product} seti={setShowItem} />
         </div>
       );

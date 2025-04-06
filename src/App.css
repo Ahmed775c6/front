@@ -6083,3 +6083,9 @@ object-fit: contain !important;
 .fsdsfaa{
     flex-wrap: wrap;
 }
+@media screen and (max-width: 380px) {
+ .smllaer{
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+}
