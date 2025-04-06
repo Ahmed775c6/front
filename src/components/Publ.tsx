@@ -59,13 +59,16 @@ const [C,setC] = useState(false);
       fetchData();
     
     }, []);
-    console.log(error)
+
   return (
 <>
 {C ? <Placed setC={setC} /> : ""}
-<section className="publiciteé bg-white" >
+{error && <div className="error hidden">{error}</div>}
+<section className={`publiciteé ${Publll && data ? 'bg-white' : ''}`} >
       <div className="two-splits">
-        <div className="pub">
+        {
+          Publll  && Publll.length > 0 ? (
+            <div className="pub">
             {
                 Publll.map((img,index)=>(
                     <img src={img} className="w-full  max-h-80 object-contain" alt={`pub-${index}`} key={index} id={`hot_pub_${index}`} />            
@@ -73,7 +76,11 @@ const [C,setC] = useState(false);
             }
    
         </div>
-        <div className="w-full relative">
+          ) : null
+        }
+       {
+        data && data.length > 0 ? (
+          <div className="w-full relative">
           <div className="command-line">
             <div className="right">
               <i className="fas fa-hand-point-right"></i>
@@ -122,6 +129,8 @@ const [C,setC] = useState(false);
      </div>
           </div>
         </div>
+        ) : null
+       }
       </div>
     </section>
 
