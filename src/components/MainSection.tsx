@@ -19,20 +19,20 @@ const [AboutCon,setAboutCon] = useState<any>('');
 const Navigate = useNavigate()
   const ScrollLeft = () => {
     if (scrollContainerRef.current ) {
-      scrollContainerRef.current.scrollLeft -= 400;
+      scrollContainerRef.current.scrollLeft -= 350;
     }
   };
 
 
   const ScrollRight = () => {
     if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollLeft += 400;
+      scrollContainerRef.current.scrollLeft += 350;
     }
   };
   
   const ScrollLeft2 = () => {
     if (scrollContainerRef1.current ) {
-      scrollContainerRef1.current.scrollLeft -= 400;
+      scrollContainerRef1.current.scrollLeft -= 350;
     }
   };
 
@@ -40,7 +40,7 @@ const Navigate = useNavigate()
 
   const ScrollRight2 = () => {
     if (scrollContainerRef1.current) {
-      scrollContainerRef1.current.scrollLeft += 400;
+      scrollContainerRef1.current.scrollLeft += 350;
     }
   };
 
