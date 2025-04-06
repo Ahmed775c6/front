@@ -99,7 +99,7 @@ F();
 
 <Hero/>
 <Publ/> 
-      <div className="visage">
+      <div className="visage mb-4">
         <div className="visage-top">
           <h3>Visage</h3>
           <div className="vis-link">
@@ -123,10 +123,10 @@ F();
           </div>
         </div>
         <div className="visage-main">
-          <div className="visage-image">
-            <img src="/assets/face.png" alt="" />
+          <div className="max-w-[300px] rounded-sm h-[380px]">
+            <img src="/assets/face.png" alt="" className=" rounded-sm h-full min-h-full" />
           </div>
-          <div className="visage-shop" id="shopContainer" ref={scrollContainerRef} key="shopContainer">
+          <div className="w-full flex  gap-3 overflow-hidden" id="shopContainer" ref={scrollContainerRef} key="shopContainer">
   {products.map((product: any) => {
     if (
       product.status &&
@@ -134,7 +134,7 @@ F();
       activeVisageTab.toLowerCase() === product.sous.toLowerCase()
     ) {
       return (
-        <div className="w-full" key={product._id}>
+        <div className="w-full min-w-[350px] max-w-[350px]" key={product._id}>
           <Product product={product} seti={setShowItem} />
         </div>
       );
@@ -190,14 +190,14 @@ F();
           <div className="visage-image ch">
             <img src="/assets/hair.png" alt="chevaux" />
           </div>
-          <div className="visage-shop" id="shopContainer2" ref={scrollContainerRef1}>
+          <div className="w-full flex  gap-3 overflow-hidden" id="shopContainer2" ref={scrollContainerRef1}>
   {products.map((product: any) => {
     if (
       product.Categorie.toLowerCase() === "cheveau" &&
       activeCheveauTab.toLowerCase() === product.sous.toLowerCase()
     ) {
       return (
-        <div className="w-full" key={product.id}>
+        <div className="w-full min-w-[350px] max-w-[350px]" key={product.id}>
           <Product product={product} seti={setShowItem} />
         </div>
       );
