@@ -6079,6 +6079,9 @@ object-fit: contain !important;
       flex-direction: column;
       gap: 20px;
     }
+    .alorsSo{
+        width: 100% !important;
+    }
 }
 .fsdsfaa{
     flex-wrap: wrap;
