@@ -9,9 +9,9 @@ import Loader from "../components/Loader"
 import Themes from "../components/AdmiComponents/Themes"
 
 
-
+import { useAdminAuth } from "../context/AdminAuthProvider"
 const Admin = () => {
-  
+  const {token } : any = useAdminAuth();
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
   useEffect(() => {
@@ -19,7 +19,10 @@ const Admin = () => {
     document.body.classList.add(theme);
     localStorage.setItem("theme", theme);
     setTheme(theme)
-    setLoading(false)
+    if(token){
+      setLoading(false);
+    }
+
   }, [theme]);
 
 const [AsideT, setAside] = useState(false)
