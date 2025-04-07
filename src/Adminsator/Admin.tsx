@@ -40,9 +40,7 @@ const [Changing,setChanging] = useState(false);
   return (
 <>
 {
-  Loading ? <Loader/> : ''
-}
-<>
+  Loading ? <Loader/> : <>
   {
     Changing ? <Themes setCh = {setChanging} /> : ''
   }
@@ -62,6 +60,8 @@ const [Changing,setChanging] = useState(false);
   </button>
   </div>
   </>
+}
+
 </>
   )
 }
