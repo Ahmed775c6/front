@@ -6085,7 +6085,7 @@ object-fit: contain !important;
     .posw{
         position: absolute !important;
         z-index: 20 !important;
-        right: 0 !important;
+     
         top: 0 !important;
         height: 100%;
         transition: all .3s ease-in-out;
