@@ -93,7 +93,7 @@ SetClose(false)
           </button>
         </form>
 
-        <div className="absolute bottom-[-25px] right-[-20px] flex-col bg-[#73144b] text-white flex gap-2 w-[320px] p-4 rounded-lg text-sm shadow-lg">
+        <div className="absolute bottom-[-25px] right-[-20px] flex-col bg-[#144273] text-white flex gap-2 w-[320px] p-4 rounded-lg text-sm shadow-lg">
           <span className="ml-4 flex gap-2 ">
             <i className="ri-phone-line"></i> +216 99 103 052
           </span>
