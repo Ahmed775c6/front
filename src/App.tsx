@@ -1,12 +1,24 @@
+import  { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import Home from "./pages/Front/Home";
-import Shop from "./pages/Front/Shop";
-import Produit from "./pages/Front/Produit";
-import Auth from "./Adminsator/Auth";
+// Lazy-loaded components for unprotected routes
+const Home = lazy(() => import("./pages/Front/Home"));
+const Shop = lazy(() => import("./pages/Front/Shop"));
+const Produit = lazy(() => import("./pages/Front/Produit"));
+const Auth = lazy(() => import("./Adminsator/Auth"));
+const Cart = lazy(() => import("./pages/Front/Cart"));
+const VerifyAccount = lazy(() => import("./pages/VerifyAccount"));
+const Profile = lazy(() => import("./pages/Profile"));
+const Passob = lazy(() => import("./components/Passob"));
+const Er = lazy(() => import("./components/er"));
+const ChangeP1012 = lazy(() => import("./components/ChangepassCor"));
+const TermsAndFAQ = lazy(() => import("./pages/Front/Lagels"));
+const Blog = lazy(() => import("./pages/Front/blog"));
+const Blog_item = lazy(() => import("./pages/Front/Blog_item"));
+
+// Static imports for protected routes and admin components
 import Admin from "./Adminsator/Admin";
-import Cart from "./pages/Front/Cart";
 import AppEdit from "./Adminsator/AppEdit";
 import AddProduct from "./Adminsator/AddProduct";
 import Edit from "./Adminsator/Edit";
@@ -14,36 +26,29 @@ import ProductsPage from "./Adminsator/Products";
 import Clients from "./Adminsator/Clients";
 import Stat from "./Adminsator/Stat";
 import BlogEditor from "./Adminsator/Blogger";
-import VerifyAccount from "./pages/VerifyAccount";
-import Profile from "./pages/Profile";
 import InvoicesPage from "./Adminsator/invoicesPage";
 import CustomerDetails from "./Adminsator/CustomerPopup";
 import ModifierPR from "./components/AdmiComponents/ModifierPR";
 import MenuEdit from "./Adminsator/MenuEdit";
-import { AdminAuthProvider } from "./context/AdminAuthProvider"; // Import AdminAuthProvider
-import ProtectedAdminRoute from "./components/ProtectedAdminRoute"; // Import ProtectedAdminRoute
+import { AdminAuthProvider } from "./context/AdminAuthProvider";
+import ProtectedAdminRoute from "./components/ProtectedAdminRoute";
 import Analytics from "./Adminsator/Stat";
 import Messanger from "./components/AdmiComponents/Messanger";
 import Sales from "./components/AdmiComponents/Sales";
 import Storage from "./Adminsator/Storage";
-import Blog from "./pages/Front/blog";
-import Blog_item from "./pages/Front/Blog_item";
 import Repports from "./Adminsator/Repports";
 import Reviews from "./components/AdmiComponents/Reviews";
 import Orders101 from "./Adminsator/Orders";
 import Posts from "./Adminsator/Posts";
 import UpdatePosts from "./Adminsator/UpdatePost";
-import Passob from "./components/Passob";
-import Er from "./components/er";
-import ChangeP1012 from "./components/ChangepassCor";
 import Botifica from "./components/AdmiComponents/Botifica";
-import TermsAndFAQ from "./pages/Front/Lagels";
+import Loader from "./components/Loader";
 function App() {
-
   return (
-    <AdminAuthProvider> 
-    
+    <AdminAuthProvider>
+      <Suspense fallback={<Loader />}>
         <Routes>
+          {/* Unprotected Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/admin" element={<Auth />} />
@@ -52,16 +57,14 @@ function App() {
           <Route path="/ViewProduct" element={<Produit />} />
           <Route path="/Verify" element={<VerifyAccount />} />
           <Route path="/forget_password" element={<Passob />} />
-          <Route path="/er" element={<Er/>} />
+          <Route path="/er" element={<Er />} />
           <Route path="/changex" element={<ChangeP1012 />} />
           <Route path="/legal" element={<TermsAndFAQ />} />
-          <Route path="/profile" element={
-          
-<Profile/>
-          } />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog_item" element={<Blog_item />} />
-     
+
+          {/* Protected Admin Routes */}
           <Route
             path="/dashbord"
             element={
@@ -241,7 +244,7 @@ function App() {
             }
           />
         </Routes>
-   
+      </Suspense>
     </AdminAuthProvider>
   );
 }
