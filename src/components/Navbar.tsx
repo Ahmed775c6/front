@@ -263,12 +263,12 @@ display : `${auth?.user == null ? 'none' : "flex"}`  , height : '25px !important
       { id: "visage", text: "Visage", query: "Visage" },
       { id: "cheveux", text: "Chéveux", query: "Cheveau" },
       { id: "corps", text: "Corps", query: "Corps" },
-      { id: "bebe", text: "Bébé et Maman", query: "Bebe" },
-      { id: "complement", text: "Compléments Alimentaires", query: "Complement" },
+      { id: "bebe", text: "Bébé et Maman", query: "Bebe-maman" },
+      { id: "complement", text: "Compléments Alimentaires", query: "complements-alimentaires" },
       { id: "hygiene", text: "Hygiène", query: "Hygiene" },
       { id: "solaire", text: "Solaire", query: "Solaires" },
-      { id: "bio", text: "Bio et Nature", query: "Bioetnature" },
-      { id: "medical", text: "Matériel Médical", query: "Medical" },
+      { id: "bio", text: "Bio et Nature", query: "bio-nature" },
+      { id: "medical", text: "Matériel Médical", query: "materiels-medical" },
       { id: "homme", text: "Homme", query: "Homme" },
     ].map((category) => (
       <li
