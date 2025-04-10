@@ -33,7 +33,7 @@ export const handleUploadMulti = async (files: File[]) => {
   }
 
   const uploadResults = [];
-console.log('m',files)
+
   for (const file of files) {
     const formData = new FormData();
     formData.append("file", file);

@@ -44,7 +44,7 @@ const  [init,setContent] = useState<any>('')
 
   // Form fields – initial values will be updated when product data is loaded.
   const [Categorie, setCategories] = useState("");
-
+const [initialLinks,setInitialLinks] = useState([])
   const [sous, setSous] = useState("");
   const [name, setName] = useState("");
   const [smsg, setsmg] = useState(false);
@@ -72,7 +72,7 @@ const  [init,setContent] = useState<any>('')
       setSous(product.sous || "");
       setName(product.name || "");
       setImage(product.mainImage || "/src/assets/empty.jpg");
- 
+ setInitialLinks(product.otherImages || []);
       setCurrentPrice(product.currentPrice || 0);
       setOldPrice(product.oldPrice || 0);
       setCost(product.cost || 0);
@@ -114,6 +114,7 @@ const  [init,setContent] = useState<any>('')
   const removeImageInput = (index: number) => {
     setImageInputs(imageInputs.filter((_, i) => i !== index));
     setImageInputsend(imageInputsend.filter((_, i) => i !== index));
+    setInitialLinks(initialLinks.filter((_, i) => i !== index));
   };
 
   const handelAddPr = async (e: React.FormEvent) => {
@@ -135,13 +136,15 @@ const  [init,setContent] = useState<any>('')
 
       // Upload additional images
       const validOtherImageFiles = otherImageFiles.filter((file): file is File => file !== null);
+
       const otherImgResults = await handleUploadMulti(validOtherImageFiles);
-      if (
-        !otherImgResults ||
-        otherImgResults.some((result: any) => !result.status)
-      ) {
-       
-      }
+
+
+if(otherImgResults && initialLinks.length > 0){
+  initialLinks.map((item)=>{
+    otherImgResults.push({status : true , link : item})
+  })
+}
 
       const formData = {
         id : id,
@@ -157,7 +160,7 @@ const  [init,setContent] = useState<any>('')
         point,
         discount: discountPercentage,
         mainImage: mainImgResult?.link,
-        otherImages: otherImgResults?.map((result: any) => result.link),
+        otherImages: otherImgResults && imageInputs.length > 0 ? otherImgResults?.map((result: any) => result.link) : !otherImgResults && imageInputs.length > 0 ? imageInputs : [],
         fullDisctiption : init
       };
 

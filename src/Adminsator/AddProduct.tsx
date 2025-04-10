@@ -132,7 +132,7 @@ const AddProduct = () => {
       file ? File : null
     );
 
-    if (!mainImageFile || otherImageFiles.length === 0) {
+    if (!mainImageFile ) {
       console.error("Please upload at least one main image and additional images.");
       return;
     }
@@ -143,12 +143,17 @@ const AddProduct = () => {
         console.error("Main image upload failed.");
         return;
       }
-
-      const otherImgResults = await handleUploadMulti(otherImageFiles);
-      if (!otherImgResults || otherImgResults.some((result) => !result.status)) {
-        console.error("Some additional images failed to upload.");
-        return;
-      }
+      let otherImgResults : any = [];
+if(otherImageFiles.length != 0){
+  otherImgResults  = await handleUploadMulti(otherImageFiles);
+  if (!otherImgResults || otherImgResults.some((result : any) => !result.status)) {
+    console.error("Some additional images failed to upload.");
+    return ;
+  }
+}else{
+  otherImgResults = []
+}
+      
 
       const formData = {
         name,
@@ -168,7 +173,7 @@ const AddProduct = () => {
         sold : 0,
         discount: discountPercentage,
         mainImage: mainImgResult.link,
-        otherImages: otherImgResults.map((result) => result.link),
+        otherImages: otherImgResults.map((result : any) => result.link),
         fullDisctiption : Docu,
       };
 
