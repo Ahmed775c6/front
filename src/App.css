@@ -6103,3 +6103,10 @@ display: none;
     max-width: 100% !important;
 }
 }
+.visage-image{
+    width: 400px;
+    height: 100%;
+}
+.visage-image.ch{
+    width: 400px;
+}

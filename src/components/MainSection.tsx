@@ -123,8 +123,8 @@ F();
           </div>
         </div>
         <div className="visage-main">
-          <div className="visage-image">
-            <img src="/assets/face.png" alt="" className=" rounded-sm h-full min-h-full" />
+          <div className="visage-image h-[500px]">
+            <img src="/assets/face.png" alt="" className=" rounded-sm w-full  min-h-full h-[500px]" />
           </div>
           <div className="w-full flex  gap-3 overflow-hidden" id="shopContainer" ref={scrollContainerRef} key="shopContainer">
   {products.map((product: any) => {
@@ -187,8 +187,8 @@ F();
           </div>
         </div>
         <div className="visage-main">
-          <div className="visage-image ch">
-            <img src="/assets/hair.png" alt="chevaux" />
+          <div className="visage-image ch h-[500px] ">
+            <img src="/assets/hair.png" alt="chevaux" className="rounded-sm w-full  min-h-full h-[500px]" />
           </div>
           <div className="w-full flex  gap-3 overflow-hidden" id="shopContainer2" ref={scrollContainerRef1}>
   {products.map((product: any) => {
