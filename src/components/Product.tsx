@@ -92,7 +92,7 @@ const dipatch = useDispatch();
           ⚡  {product.discount} %
           </span> : null
           }
-          {<span className=" flex justify-center items-center text-center text-xs font-medium px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full " >{product.Categorie} </span>}
+          {<span className=" flex justify-center items-center text-center text-xs font-medium px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full " >{product.Categorie.toLowerCase() == "cheveau" ?  'Cheveux' : product.Categorie} </span>}
           </div>
         </div>
       </motion.div>
