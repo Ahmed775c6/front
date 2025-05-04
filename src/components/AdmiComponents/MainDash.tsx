@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import AdminCards from "../AdminCards";
 
 import { motion } from 'framer-motion';
@@ -16,17 +16,19 @@ const MainDash = () => {
   const [GeneralData, setGeneralData] = useState<any>(null);
 
   const [name,setName] = useState('')
-  useEffect(()=>{
-setName(auth.userData?.name)
-   const fetchData = async () => {
+  useLayoutEffect(() => {
+    // Sync update for auth-related data (runs before paint)
+    setName(auth.userData?.name);
+  
+    // Async data fetch (useEffect might be better here if it's non-blocking)
+    const fetchData = async () => {
       const DT = await FetchAnalyse2();
       if (DT) {
         setGeneralData(DT);
-
       }
     };
     fetchData();
-  },[auth])
+  }, [auth]); // Dependency array
   const [status, setStatus] = useState<string>('all');
   const d = GeneralData?.General
   return (

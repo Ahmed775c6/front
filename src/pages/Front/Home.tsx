@@ -1,4 +1,4 @@
-import { useState,useContext ,useEffect } from "react"
+import { useState,useContext ,useLayoutEffect } from "react"
 
 import Footer from "../../components/Footer"
 import Navbar from "../../components/Navbar"
@@ -24,24 +24,28 @@ const name = me?.name;
 const photo = me?.pdf;
 
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await GetP();
-        const b = await Blogs();
-setArt(b.data)
-        setProducts(response); 
-        
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
+useLayoutEffect(() => {
+  const fetchProducts = async () => {
+    try {
+      const response = await GetP();
+      const b = await Blogs();
+      setArt(b.data);
+      setProducts(response); 
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
-    fetchProducts();
-   setInterval(()=>{
-    setLoading(false)
-   },2000)
-  }, []); // Empty dependency array to run once on mount
+  fetchProducts();
+  
+  const loadingTimer = setInterval(() => {
+    setLoading(false);
+  }, 2000);
+
+  return () => {
+    clearInterval(loadingTimer);
+  };
+}, []); // Empty dependency array to run once on mount
 
   
   

@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar"; 
 import BrandsLinks from "../../components/BrandsLinks";
 import Footer from "../../components/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useLayoutEffect} from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Loader from "../../components/Loader";
@@ -117,10 +117,10 @@ useEffect(()=>{
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     axios.get(`${baseUrl}/getproduct101/${id}`)
       .then(response => {
-        console.log(response.data)
+        console.log(response.data);
         setItem(response.data);
         setM(response.data.mainImage);
       })

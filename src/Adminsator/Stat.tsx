@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { FetchAnalyse } from "./Utils/getData";
 
 import Aside from "../components/AdmiComponents/Aside";
@@ -48,7 +48,7 @@ const Analytics = () => {
   const [Changing, setChanging] = useState(false);
 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetchData = async () => {
       const DT = await FetchAnalyse();
       if (DT) {

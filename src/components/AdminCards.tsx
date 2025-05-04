@@ -1,5 +1,5 @@
 import { fecthDataAt } from "../Adminsator/Utils/getData";
-import { useEffect, useState } from "react";
+import { useLayoutEffect ,useState} from 'react';
 import { motion } from "framer-motion"; 
 
 const Card = ({ icon, iconBg, iconColor, value, category }: { icon: string, iconBg: string, iconColor: string, value: string, category: string }) => {
@@ -25,15 +25,23 @@ const Card = ({ icon, iconBg, iconColor, value, category }: { icon: string, icon
 
 const AdminCards = () => {
   const [Data, setData] = useState<any>({});
-  useEffect(() => {
-    const fecthing = async () => {
-      const DT = await fecthDataAt();
-      if (DT.message) {
-        setData(DT.message);
+
+
+  useLayoutEffect(() => {
+    const fetchData = async () => {
+      try {
+        const DT = await fecthDataAt(); // Ensure correct spelling ("fetch" not "fecth")
+        if (DT.message) {
+          setData(DT.message);
+        }
+      } catch (error) {
+        console.error("Fetch error:", error);
+        // Handle errors (e.g., set an error state)
       }
     };
-    fecthing();
-  }, []);
+    
+    fetchData();
+  }, []); // Empty dependency array = runs once on mount
   
   const OverView = [
     { category: "Sales", value: Data.sales || 0 , icon: "ri-bar-chart-line", iconBg: "#E3FCEF", iconColor: "#4CAF50" },

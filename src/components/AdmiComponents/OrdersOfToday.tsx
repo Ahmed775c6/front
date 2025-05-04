@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import { motion } from 'framer-motion';
 import { FaSpinner } from 'react-icons/fa';
@@ -43,50 +43,64 @@ const OrderTableToday = ({ statusOeder }: any) => {
 
 const [up1,setIp1] = useState(false)
 const [up2,setUp2] =useState(false)
-  useEffect(() => {
-    // Initialize WebSocket connection
-    const socket = io(`${baseUrl}`);
+useLayoutEffect(() => {
+  // Initialize WebSocket connection
+  const socket = io(`${baseUrl}`);
 
-    // Fetch initial orders
-    axios.get(`${baseUrl}/ordersToday`)
-      .then((response) => {
-        const sortedOrders = response.data.sort((a: Order, b: Order) => {
-          return parseOrderDate(b.date).getTime() - parseOrderDate(a.date).getTime();
-        });
-        setOrders(sortedOrders);
-        setLoading(false);
-      })
-      .catch(console.error);
-
-    // Listen for new orders
-    socket.on('tbf', (newOrder: Order) => {
-      console.log(newOrder)
-      setOrders(prev => {
-        if (prev.some(order => order._id === newOrder._id)) return prev;
-        
-        const updatedOrders = [newOrder, ...prev];
-        return updatedOrders.sort((a, b) => 
-          parseOrderDate(b.date).getTime() - parseOrderDate(a.date).getTime()
-        );
-
-
+  // Fetch initial orders (synchronous part before paint)
+  setLoading(true);
+  const fetchInitialOrders = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/ordersToday`);
+      const sortedOrders = response.data.sort((a: Order, b: Order) => {
+        return parseOrderDate(b.date).getTime() - parseOrderDate(a.date).getTime();
       });
-      
+      setOrders(sortedOrders);
+    } catch (error) {
+      console.error('Failed to fetch orders:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      // Highlight new order
-      const newRow = document.getElementById(newOrder._id);
-      if (newRow) {
-        console.log(newRow)
-     
-        newRow.classList.add('new-order-highlight');
-        
-      }
+  // Immediate execution for critical initial render
+  fetchInitialOrders();
+
+  // WebSocket listeners
+  const handleNewOrder = (newOrder: Order) => {
+    setOrders(prev => {
+      // Deduplication
+      if (prev.some(order => order._id === newOrder._id)) return prev;
+      
+      // Optimized sorting with memoization opportunity
+      const updatedOrders = [newOrder, ...prev];
+      return updatedOrders.sort((a, b) => 
+        parseOrderDate(b.date).getTime() - parseOrderDate(a.date).getTime()
+      );
     });
 
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
+    // DOM manipulation (primary reason for useLayoutEffect)
+    requestAnimationFrame(() => {
+      const newRow = document.getElementById(newOrder._id);
+      if (newRow) {
+        newRow.classList.add('new-order-highlight');
+        
+        // Auto-remove highlight after animation
+        setTimeout(() => {
+          newRow.classList.remove('new-order-highlight');
+        }, 3000);
+      }
+    });
+  };
+
+  socket.on('tbf', handleNewOrder);
+
+  // Cleanup
+  return () => {
+    socket.off('tbf', handleNewOrder);
+    socket.disconnect();
+  };
+}, [baseUrl]);
 
   const Popup = () => {
     const closePopup = () => {
