@@ -210,19 +210,31 @@ F();
             <img src="/assets/hair.png" alt="chevaux" className="rounded-sm w-full  min-h-full h-[500px]" />
           </div>
           <div className="w-full flex  gap-3 overflow-hidden" id="shopContainer2" ref={scrollContainerRef1}>
-  {products.map((product: any) => {
-    if (
-      product.Categorie.toLowerCase() === "cheveau" &&
-      activeCheveauTab.toLowerCase() === product.sous.toLowerCase()
-    ) {
-      return (
-        <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={product.id}>
-          <Product product={product} seti={setShowItem} />
-        </div>
-      );
-    }
-    return null;
-  })}
+          {products.length === 0 ? (
+    // Show skeletons while loading
+    Array.from({ length: 4 }).map((_, index) => (
+      <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={`skeleton-${index}`}>
+        <ProductSkeleton />
+      </div>
+    ))
+  ) : (
+    // Show actual products when loaded
+    products.map((product: any) => {
+      if (
+        product.status &&
+        product.Categorie.toLowerCase() === "cheveau" &&
+        activeVisageTab.toLowerCase() === product.sous.toLowerCase()
+      ) {
+        return (
+          <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={product._id}>
+            <Product product={product} seti={setShowItem} />
+          </div>
+        );
+      }
+      return null;
+    })
+  )}
+
 </div>
         </div>
         <Hair/>
