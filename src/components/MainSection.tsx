@@ -10,6 +10,7 @@ import {motion} from "framer-motion"
 import ProductGrid from "./TabsShop";
 import Hair from "./Hair";
 import { useNavigate } from "react-router-dom";
+import ProductSkeleton from "./Skelton";
 
 const MainSection = ({ products , blogs } : any) => {
 const VisageSC = products.filter((item : any) =>{return item.Categorie == "visage" && item.sous == "soin de visage"})
@@ -126,21 +127,33 @@ F();
           <div className="visage-image h-[500px]">
             <img src="/assets/face.png" alt="" className=" rounded-sm w-full  min-h-full h-[500px]" />
           </div>
-          <div className="w-full flex  gap-3 overflow-hidden" id="shopContainer" ref={scrollContainerRef} key="shopContainer">
-  {products.map((product: any) => {
-    if (
-      product.status &&
-      product.Categorie.toLowerCase() === "visage" &&
-      activeVisageTab.toLowerCase() === product.sous.toLowerCase()
-    ) {
-      return (
-        <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={product._id}>
-          <Product product={product} seti={setShowItem} />
-        </div>
-      );
-    }
-    return null; // Render nothing if conditions aren't met
-  })}
+
+
+<div className="w-full flex gap-3 overflow-hidden" id="shopContainer" ref={scrollContainerRef} key="shopContainer">
+  {products.length === 0 ? (
+    // Show skeletons while loading
+    Array.from({ length: 4 }).map((_, index) => (
+      <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={`skeleton-${index}`}>
+        <ProductSkeleton />
+      </div>
+    ))
+  ) : (
+    // Show actual products when loaded
+    products.map((product: any) => {
+      if (
+        product.status &&
+        product.Categorie.toLowerCase() === "visage" &&
+        activeVisageTab.toLowerCase() === product.sous.toLowerCase()
+      ) {
+        return (
+          <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={product._id}>
+            <Product product={product} seti={setShowItem} />
+          </div>
+        );
+      }
+      return null;
+    })
+  )}
 </div>
         </div>
 <VisageScanner p = {VisageSC}/>
