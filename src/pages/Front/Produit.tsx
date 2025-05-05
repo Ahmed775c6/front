@@ -36,6 +36,7 @@ const Produit = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get("id");
+  console.log('wxjp :',id)
   const [m, setM] = useState('');
   const [activePromoTab, setActivePromoTab] = useState('Description');
   const [item, setItem] = useState<Product | null>(null);

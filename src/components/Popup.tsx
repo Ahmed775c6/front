@@ -49,8 +49,8 @@ if(r.data.message){
   }
   if (!product) return null;
 
-  const onShowDetails  = (id : any) => {
-    window.location.href = `/ViewProduct?id=${id}`;
+  const onShowDetails  = (id : any,name :any) => {
+    window.location.href = `/ViewProduct?id=${id}?name=${name}`;
 
   }
 
@@ -130,7 +130,7 @@ window.location.href = `/profile?id=${auth?.user?._id}`
             <button className="details1 bg-rose-400 rounded-3xl" onClick={() => onSaveFavorite(product)}>
               <i className="ri-heart-line"></i>Favorise
             </button>
-            <button className="details1 bg-violet-700 rounded-3xl" onClick={() => onShowDetails(product._id)}>
+            <button className="details1 bg-violet-700 rounded-3xl" onClick={() => onShowDetails(product._id , product.name)}>
               <i className="ri-eye-line"></i>Plus de détails
             </button>
   
