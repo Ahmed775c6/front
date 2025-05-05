@@ -18,6 +18,12 @@ const VisageSC = products.filter((item : any) =>{return item.Categorie == "visag
   const scrollContainerRef1 = useRef<HTMLDivElement>(null);
 const [AboutCon,setAboutCon] = useState<any>('');
 const Navigate = useNavigate()
+const [fload,setFload] = useState(true)
+useEffect(() => {
+if(products.length > 0){
+  setFload(false)
+}
+}, [products.length])
   const ScrollLeft = () => {
     if (scrollContainerRef.current ) {
       scrollContainerRef.current.scrollLeft -= 350;
@@ -247,7 +253,7 @@ F();
             ))}
           </ul>
         </div>
-   <ProductGrid products={products} activePromoTab={activePromoTab} setShowItem={setShowItem}  />
+   <ProductGrid products={products} activePromoTab={activePromoTab} setShowItem={setShowItem} fload = {fload}  />
    
         <div className="about-us bg-white ">
         <div className="col-inner">

@@ -1,27 +1,22 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Product from "./Product";
 import ProductSkeleton from "./Skelton";
-import { useEffect, useState } from "react";
+
 const ProductGrid = ({ 
   products, 
   activePromoTab, 
   setShowItem,
-
+fload
 }: { 
   products: any[], 
   activePromoTab: string, 
   setShowItem: (value: boolean) => void,
-
+fload: boolean
 }) => {
   // Number of skeleton items to show
   const skeletonItems = 20;
-const [fload,setfload] = useState(true)
-useEffect(()=>{
-if(products.length > 0){
-  setfload(false) 
-}
 
-},[])
+
   return (
     <div className="shop">
       <AnimatePresence mode="wait">
