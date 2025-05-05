@@ -6,16 +6,14 @@ const ProductGrid = ({
   products, 
   activePromoTab, 
   setShowItem,
-fload
+  fload
 }: { 
   products: any[], 
   activePromoTab: string, 
   setShowItem: (value: boolean) => void,
-fload: boolean
+  fload: boolean
 }) => {
-  // Number of skeleton items to show
   const skeletonItems = 20;
-
 
   return (
     <div className="shop">
@@ -27,39 +25,40 @@ fload: boolean
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            key={"xs"}
+            key="nouveaux" // Unique key for tab
+            layoutRoot // Add this for layout animations
           >
-            {fload ? (
-              Array(skeletonItems).fill(null).map((_, index) => (
-                <motion.div
-                  className="w-full"
-                  key={`skeleton-${index}`}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ProductSkeleton />
-                </motion.div>
-              ))
-            ) : (
-              products
-                .filter((product) => product.status === true)
-                .map((product) => (
+            <AnimatePresence>
+              {fload ? (
+                Array(skeletonItems).fill(null).map((_, index) => (
                   <motion.div
                     className="w-full"
-                    key={product._id}
-                    layout
+                    key={`skeleton-${index}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Product product={product} seti={setShowItem} />
+                    <ProductSkeleton />
                   </motion.div>
                 ))
-            )}
+              ) : (
+                products
+                  .filter((product) => product.status === true)
+                  .map((product) => (
+                    <motion.div
+                      className="w-full"
+                      key={product._id}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Product product={product} seti={setShowItem} />
+                    </motion.div>
+                  ))
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
 
@@ -70,39 +69,40 @@ fload: boolean
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            key={"ls"}
+            key="promos" // Unique key for tab
+            layoutRoot // Add this for layout animations
           >
-            {fload ? (
-              Array(skeletonItems).fill(null).map((_, index) => (
-                <motion.div
-                  className="w-full"
-                  key={`skeleton-${index}`}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ProductSkeleton />
-                </motion.div>
-              ))
-            ) : (
-              products
-                .filter((product) => product.discount > 0)
-                .map((product) => (
+            <AnimatePresence>
+              {fload ? (
+                Array(skeletonItems).fill(null).map((_, index) => (
                   <motion.div
                     className="w-full"
-                    key={product._id}
-                    layout
+                    key={`skeleton-${index}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Product product={product} seti={setShowItem} />
+                    <ProductSkeleton />
                   </motion.div>
                 ))
-            )}
+              ) : (
+                products
+                  .filter((product) => product.discount > 0)
+                  .map((product) => (
+                    <motion.div
+                      className="w-full"
+                      key={product._id}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Product product={product} seti={setShowItem} />
+                    </motion.div>
+                  ))
+              )}
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
