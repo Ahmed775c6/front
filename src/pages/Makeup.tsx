@@ -32,7 +32,7 @@ return (
 <Navbar />
 {
     Loading ? <ProductSkeleton /> : 
-    <div className="w-full flex flex-wrap justify-center gap-2 p-3">
+    <div className="w-full grid grid-cols-3 gap-3 dkhdyh">
         {
             products.map((item:any) => (
            <div className="" key={item._id}>
