@@ -16,6 +16,7 @@ const ChangeP1012 = lazy(() => import("./components/ChangepassCor"));
 const TermsAndFAQ = lazy(() => import("./pages/Front/Lagels"));
 const Blog = lazy(() => import("./pages/Front/blog"));
 const Blog_item = lazy(() => import("./pages/Front/Blog_item"));
+const  MAKEUP = lazy(() => import("./pages/Makeup"));
 
 // Static imports for protected routes and admin components
 import Admin from "./Adminsator/Admin";
@@ -63,6 +64,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog_item" element={<Blog_item />} />
+          <Route path="/makeup" element={<MAKEUP />} />
 
           {/* Protected Admin Routes */}
           <Route
