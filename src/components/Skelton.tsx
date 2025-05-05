@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 const ProductSkeleton = () => {
   return (
-    <motion.div className="product2 animate-pulse h-|350px]">
+    <motion.div className="product2 animate-pulse">
       <div className="product_img bg-white">
         {/* Image Skeleton */}
-        <div className="bg-gray-200 h-[60%] w-full rounded-t-lg"></div>
+        <div className="bg-gray-200 h-full min-h-[350px] w-full rounded-t-lg"></div>
         
         {/* Actions Skeleton */}
         <div className="actions z-20 flex justify-center gap-4">
