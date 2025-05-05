@@ -93,6 +93,17 @@ window.location.href = `/profile?id=${auth?.user?._id}`
             </div>
             <div className="product_detials">
               <div className="the_pr_image bg-white">
+  {
+    <img src="/logo.png" style={{
+      width: "60px",
+      height: "50px",
+      position: "absolute",
+      bottom: "5px",
+      right: "15px",
+      zIndex: "10",
+    }} alt="" />
+  }
+  
    {
     product.discount > 0 ?              <span className="discount_pr bg-rose-100 text-rose-500 px-2 rounded-full text-xs font-medium left-0"> ⚡{product.discount}%</span> :null
    }

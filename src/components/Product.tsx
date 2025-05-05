@@ -53,7 +53,15 @@ const dipatch = useDispatch();
     <>
       {C ? <Placed setC={setC} /> : ""}
       <motion.div layout className="product2">
-        <div className="product_img  bg-white">
+        <div className="product_img relative  bg-white">
+        <img src="/logo.png" style={{
+            position: "absolute",
+            bottom: "-45%",
+            right: "6px",
+            width: "50px",
+            height: "50px",
+            zIndex: "10",
+          }} alt="p-logo" />    
           <img
             src={product.mainImage} // Updated to use mainImage
             alt={product.name }
@@ -76,6 +84,7 @@ const dipatch = useDispatch();
               onClick={() => toggleProductOverview(product)} // Pass _id to toggleProductOverview
             ></i>
           </div>
+     
         </div>
         <div className="product_content">
           <div className="title_dis">

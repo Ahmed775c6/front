@@ -136,7 +136,9 @@ const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
         <div className="left-side-bar w-full items-start   ">
           <a className="flex gap-0" href="/">
          
-   <h2 className="w-full p-2 text-[1.2rem] text-[#144273] font-semibold ">ALL TUNISIA  PARA .</h2>
+   <h2 className="w-full p-2 text-[1.2rem] text-[#144273] font-semibold flex gap-2 ">
+    <img src="/logo.png" alt="logo" className="w-8 h-8 object-cover  " loading="lazy" />
+    ALL TUNISIA  PARA .</h2>
           </a>
      
         </div>
@@ -167,11 +169,11 @@ const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
      <>
           <div className="sign-in" onClick={popup}>
       <i className="ri-user-shared-line"></i>
-      <p className="text-sm">Sign in</p>
+      <p className="text-sm capitalize">connecter</p>
     </div>
     <div className="sign-up" onClick={popup2}>
       <i className="ri-user-add-line"></i>
-      <p className="text-sm">Sign up</p>
+      <p className="text-sm capitalize">register</p>
     </div>
      
      </>:''
