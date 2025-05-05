@@ -1,4 +1,4 @@
-import { useState,useRef,useEffect } from "react";
+import { useState,useRef,useEffect, useLayoutEffect } from "react";
 import Hero from "./Hero";
 import Publ from "./Publ";
 import Product from "./Product";
@@ -64,7 +64,7 @@ F();
 
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
@@ -295,7 +295,7 @@ F();
           <h2 className="text-md text-gray-900">Nos Articles</h2>
           <a href="/blog" className="uppercase text-md text-gray-900 flex gap-2" onClick={()=>{Navigate('/blog')}}>lire Plus <i className="ri-arrow-right-line"></i></a>
         </div>
-        <div className="w-full overflow-hidden relative "> {/* Dark background for entire slider */}
+        <div className="w-full overflow-hidden relative "> 
       <motion.div
         className="flex gap-2 rounded-md"
         animate={{
