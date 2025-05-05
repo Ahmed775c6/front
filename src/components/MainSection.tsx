@@ -223,7 +223,7 @@ F();
       if (
         product.status &&
         product.Categorie.toLowerCase() === "cheveau" &&
-        activeVisageTab.toLowerCase() === product.sous.toLowerCase()
+        activeCheveauTab.toLowerCase() === product.sous.toLowerCase()
       ) {
         return (
           <div className="w-full min-w-[350px] max-w-[350px] smllaer" key={product._id}>
