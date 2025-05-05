@@ -32,7 +32,7 @@ return (
 <Navbar />
 {
     Loading ? <ProductSkeleton /> : 
-    <div className="w-full grid grid-cols-3 gap-3 dkhdyh p-3 bh-white">
+    <div className="w-full grid grid-cols-3 gap-3 dkhdyh p-3 bg-white">
         {
             products.map((item:any) => (
            <div className="" key={item._id}>
