@@ -44,14 +44,18 @@ type SliderProps = {
       </div>
     );
   };
+    
+  type MainProps = {
+    p: any;
+  };
   
-  const Products: any[] = [];
-  const Main: React.FC = () => {
+ 
+  const Main: React.FC<MainProps> = ({p} : any) => {
     return (
       <main>
    
         <Slider
-          images={Products }
+          images={p }
           width={200}
           height={200}
           
@@ -64,8 +68,9 @@ type SliderProps = {
   
 
 
-const Hair = () => {   
+const Hair = ({p } : any) => {   
     const [selectedColor, setSelectedColor] = useState(hairColors[0].color);
+    
   
 
   return (
@@ -77,7 +82,7 @@ const Hair = () => {
 <h1 className="text-[#144273] font-semibold text-[1.5rem]">Découvrez la coloration naturelle Phyto</h1>
 <p>Essayer une nouvelle teinte n'a jamais été aussi simple. Vous pouvez essayer n'importe quelle nuance et voir comment elle vous va</p>
 <div className="w-full flex flex-col gap-3 ">
-<Main/>
+<Main p = {p} />
 
 </div>
 </div>
@@ -88,6 +93,7 @@ const Hair = () => {
               src={`/assets/${selectedColor}.png`}
               alt="Hair Color Preview"
               className="w-full h-[60vh] p-2 object-contain"
+              loading="lazy"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}

@@ -87,9 +87,10 @@ const visageScanner = ({p} :any) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const x = useMotionValue(0);
     const prevPercentage = useRef(0);
-  
+ 
     // Reset detection when scanner loops
     useEffect(() => {
+    
       const unsubscribe = x.on("change", (latest) => {
         if (!containerRef.current) return;
         const containerWidth = containerRef.current.offsetWidth;

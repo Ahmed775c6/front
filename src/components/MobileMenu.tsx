@@ -32,7 +32,8 @@ const MobileCategoryMenu = ({ links , setclose } :any) => {
               <span>{openCategory === category.id ? "▲" : "▼"}</span>
             </button>
             {openCategory === category.id && (
-              <div className="bg-gray-200 p-2 ">
+              <div className="bg-gray-50 p-2 ">
+                <a href={`/shop?direction=${openCategory}`} className=" ml-16 text-green-900" > Tous les gammes de {openCategory}</a>
                 <div className="flex flex-col gap-2">
                   {links
                     ?.filter((link : any) => link.content.categorie.toLowerCase() === category.id.toLowerCase())

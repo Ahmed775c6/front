@@ -13,7 +13,12 @@ import { useNavigate } from "react-router-dom";
 import ProductSkeleton from "./Skelton";
 
 const MainSection = ({ products , blogs } : any) => {
-const VisageSC = products.filter((item : any) =>{return item.Categorie == "visage" && item.sous == "soin de visage"})
+const VisageSC = products.filter((item: any) => {
+    return item.Categorie.toLowerCase() === "visage" || item.sous.toLowerCase()  === "soin de visage";
+});
+const HairSC = products.filter((item: any) => {
+    return item.Categorie.toLowerCase() === "cheveau" || item.sous.toLowerCase()  === "Phyto" || item.marques.toLowerCase()  === "Phyto" || item.sous.toLowerCase()  === "cheveux";
+});
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef1 = useRef<HTMLDivElement>(null);
 const [AboutCon,setAboutCon] = useState<any>('');
@@ -131,7 +136,7 @@ F();
         </div>
         <div className="visage-main">
           <div className="visage-image h-[500px]">
-            <img src="/assets/face.png" alt="" className=" rounded-sm w-full  min-h-full h-[500px]" />
+            <img src="/assets/face.png" alt="" loading="lazy" className=" rounded-sm w-full  min-h-full h-[500px]" />
           </div>
 
 
@@ -169,15 +174,20 @@ F();
         <div className="w-full flex flex-col gap-2 justify-center items-start p-4 h-full rounded-md ppp">
         <h1 className="text-3xl font-semibold text-pink-500">Makeup & Parfum</h1>
 <p className="text-pink-900">Découvrez notre maquillage et parfums.</p>
-<button className=" p-2 rounded-md uppercase bg-pink-500 text-white">Découvrir plus
+<button className=" p-2 rounded-md uppercase bg-pink-500 text-white" onClick={()=>{[
+  window.location.href = `/makeup`
+]}} >Découvrir plus
 </button>
         </div>
         <div className="w-full flex flex-col justify-center items-start ppp1 p-4 h-full gap-2 rounded-md">
-<h1 className="text-3xl font-semibold text-[#144273]">Matériel orthopédique</h1>
-<p className="text-blue-900">Découvrez notre gamme de matériel orthopédique, spécialement conçue pour offrir confort et mobilité aux personnes ayant des besoins spécifiques. Nos fauteuils roulants sont disponibles à la location pour vous offrir une solution pratique et adaptée à vos besoins quotidiens.
+<h1 className="text-3xl font-semibold text-[#144273]" >Matériel orthopédique</h1>
+<p className="text-blue-900">
+  Découvrez notre gamme de matériel orthopédique, spécialement conçue pour offrir confort et mobilité aux personnes ayant des besoins spécifiques. Nos fauteuils roulants sont disponibles à la location pour vous offrir une solution pratique et adaptée à vos besoins quotidiens.
 
 </p>
-<button className="bg-blue-400 text-white p-2 rounded-md uppercase">Découvrir plus
+<button className="bg-blue-400 text-white p-2 rounded-md uppercase"  onClick={()=>{[
+  window.location.href = `/shop?direction=materiels-medical`
+]}} >Découvrir plus
 </button>
         </div>
       </div>
@@ -207,7 +217,7 @@ F();
         </div>
         <div className="visage-main">
           <div className="visage-image ch h-[500px] ">
-            <img src="/assets/hair.png" alt="chevaux" className="rounded-sm w-full  min-h-full h-[500px]" />
+            <img src="/assets/hair.png" alt="chevaux" loading="lazy" className="rounded-sm w-full  min-h-full h-[500px]" />
           </div>
           <div className="w-full flex  gap-3 overflow-hidden" id="shopContainer2" ref={scrollContainerRef1}>
           {products.length === 0 ? (
@@ -237,18 +247,22 @@ F();
 
 </div>
         </div>
-        <Hair/>
+        <Hair p ={HairSC} />
       </div>
       <div className="w-full grid grid-cols-2 gap-2 xlsmjxxx h-full min-h-full p-2" >
         <div className="w-full flex flex-col gap-2 justify-center items-start p-4 h-full min-h-96 rounded-md ppp2">
         <h1 className="text-3xl text-yellow-400 font-semibold">Nitrition Sportive</h1>
 <p className="text-gray-200">Découvrez notre complement nitrtive </p>
-<button className="bg-yellow-500 p-2 rounded-md uppercase text-white ">Découvrir plus</button>
+<button className="bg-yellow-500 p-2 rounded-md uppercase text-white " onClick={()=>{
+  window.location.href = `/shop?direction=Nitrition Sportive`
+}}>Découvrir plus</button>
         </div>
         <div className="w-full flex flex-col justify-center items-start ppp3 p-4 h-full min-h-96 gap-2 rounded-md">
 <h1 className="text-3xl font-semibold text-green-900">Animalerie</h1>
 <p className = 'text-gray-600'>tout ce dont votre animal a besoin.</p>
-<button className="bg-green-800 text-white p-2 uppercase rounded-md">Découvrir plus</button>
+<button className="bg-green-800 text-white p-2 uppercase rounded-md" onClick={()=>{
+  window.location.href = `/shop?direction=Animalerie`
+}}>Découvrir plus</button>
         </div>
       </div>
       <div className="top-promos">
