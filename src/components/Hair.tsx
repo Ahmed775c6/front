@@ -18,7 +18,7 @@ type SliderProps = {
   };
   
   const Slider: React.FC<SliderProps> = ({ images, width, height, reverse }) => {
-
+console.log('xxx',images)
     return (
       <div
         className="slider"
@@ -36,7 +36,7 @@ type SliderProps = {
     <p>{src.name}</p>
     <span>{src.price}</span>
 </div>
-              <img src={src.img} alt="slider image "  />
+              <img src={src.mainImage} alt="slider image "  />
       
             </div>
           ))}
