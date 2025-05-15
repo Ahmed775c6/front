@@ -71,7 +71,7 @@ type SliderProps = {
         <Slider
           images={pr }
           width={200}
-          height={200}
+          height={400}
           
         />
         <button className='p-2 bg-white w-full rounded-3xl mt-auto'>
@@ -125,7 +125,7 @@ const visageScanner = ({p} :any) => {
       {/* Before Image */}
       <motion.img
         key="before"
-        src="/assets/before2.png"
+        src="./assets/before2.png"
         alt="before"
         className="absolute inset-0 rounded-md p-2 w-full h-full object-cover"
         initial={{ opacity: 1 }}
@@ -136,7 +136,7 @@ const visageScanner = ({p} :any) => {
       {/* After Image */}
       <motion.img
         key="after"
-        src="/assets/after.png"
+        src="./assets/after.png"
         alt="after"
         className="absolute rounded-md inset-0 p-2 w-full h-full object-cover"
         initial={{ opacity: 0 }}
