@@ -71,7 +71,7 @@ type SliderProps = {
         <Slider
           images={pr }
           width={200}
-          height={400}
+          height={200}
           
         />
         <button className='p-2 bg-white w-full rounded-3xl mt-auto'>
@@ -112,16 +112,16 @@ const visageScanner = ({p} :any) => {
 <>
 <div className="w-full flex  rounded-md xlsmj ">
     
-<div className="w-full h-full p-4 gap-3 flex flex-col relative ">
+<div className="w-full  h-full p-4 gap-3 flex flex-col relative ">
 <label className="p-2 bg-[#144273] rounded-lg text-white w-fit ">Soin De Visage</label>
 <h1 className="text-[#144273] font-semibold text-[1.5rem]">Meilleures gammes pour sublimer votre peau par nos soins anti-taches brunes</h1>
 <p className="text-[1rem]">Adieu Taches Brunes !</p>
 <div className="w-full flex flex-col gap-3">
-<Main pr= {[]}/>
+<Main pr= {p}/>
 
 </div>
 </div>
-<div ref={containerRef} className="w-full p-2  rounded-md relative  h-[70vh]">
+<div ref={containerRef} className=" p-2 w-full  rounded-md relative  h-[70vh]">
       {/* Before Image */}
       <motion.img
         key="before"
@@ -159,6 +159,7 @@ const visageScanner = ({p} :any) => {
         style={{ x }}
       />
     </div>
+
 </div>
 
 </> 
