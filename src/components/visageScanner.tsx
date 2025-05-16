@@ -74,7 +74,9 @@ type SliderProps = {
           height={200}
           
         />
-        <button className='p-2 bg-white w-full rounded-3xl mt-auto'>
+        <button onClick={()=> {
+          window.location.href = `/shop?direction=Visage`
+        }} className='p-2 bg-white w-full rounded-3xl mt-auto'>
         Découvrez tout</button>
       </main>
     );
@@ -110,7 +112,7 @@ const visageScanner = ({p} :any) => {
     }, [x]);
   return (
 <>
-<div className="w-full flex  rounded-md xlsmj ">
+<div className="w-full grid grid-cols-2  rounded-md xlsmj ">
     
 <div className="w-full  h-full p-4 gap-3 flex flex-col relative ">
 <label className="p-2 bg-[#144273] rounded-lg text-white w-fit ">Soin De Visage</label>
