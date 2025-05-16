@@ -5949,7 +5949,7 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     filter: grayscale(0);
 }
 .slider[data-reverse="true"] .item{
-    animation: reversePlay 10s linear infinite;
+    animation: reversePlay 200s linear infinite;
 }
 @keyframes reversePlay{
     from{
