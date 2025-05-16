@@ -18,7 +18,7 @@ type SliderProps = {
   };
   
   const Slider: React.FC<SliderProps> = ({ images, width, height, reverse }) => {
-console.log('xxx',images)
+
     return (
       <div
         className="slider"
