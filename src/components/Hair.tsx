@@ -61,7 +61,7 @@ type SliderProps = {
           
         />
        <button className='p-2 bg-white w-full mt-auto rounded-3xl' onClick={()=>{
-        window.location.href = `/shop?direction=pytho`
+        window.location.href = `/shop?direction=phytéal`
        }}>
        Découvrez tout</button>
       </main>
