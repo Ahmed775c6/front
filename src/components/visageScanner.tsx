@@ -90,7 +90,7 @@ const visageScanner = ({p} :any) => {
  
     // Reset detection when scanner loops
     useEffect(() => {
-    
+    console.log(p)
       const unsubscribe = x.on("change", (latest) => {
         if (!containerRef.current) return;
         const containerWidth = containerRef.current.offsetWidth;
@@ -117,7 +117,7 @@ const visageScanner = ({p} :any) => {
 <h1 className="text-[#144273] font-semibold text-[1.5rem]">Meilleures gammes pour sublimer votre peau par nos soins anti-taches brunes</h1>
 <p className="text-[1rem]">Adieu Taches Brunes !</p>
 <div className="w-full flex flex-col gap-3">
-<Main pr= {p}/>
+<Main pr= {[]}/>
 
 </div>
 </div>
