@@ -57,10 +57,12 @@ type SliderProps = {
         <Slider
           images={p }
           width={200}
-          height={200}
+          height={300}
           
         />
-       <button className='p-2 bg-white w-full mt-auto rounded-3xl'>
+       <button className='p-2 bg-white w-full mt-auto rounded-3xl' onClick={()=>{
+        window.location.href = `/shop?direction=pytho`
+       }}>
        Découvrez tout</button>
       </main>
     );

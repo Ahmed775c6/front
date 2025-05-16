@@ -14,7 +14,7 @@ import ProductSkeleton from "./Skelton";
 
 const MainSection = ({ products , blogs } : any) => {
 const VisageSC = products.filter((item: any) => {
-    return item.Categorie.toLowerCase() === "visage" || item.sous.toLowerCase()  === "soin de visage";
+    return  item.sous.toLowerCase()  === "soin de visage"  || item.sous.toLowerCase() == 'Anti imperfections';
 });
 const HairSC = products.filter((item: any) => {
     return item.Categorie.toLowerCase() === "cheveau" || item.sous.toLowerCase()  === "Phyto" || item.marques.toLowerCase()  === "Phyto" || item.sous.toLowerCase()  === "cheveux";

@@ -16,7 +16,7 @@ type SliderProps = {
         style={{
           "--width": `${width}px`,
           "--height": `${height}px`,
-          "--quantity": images.length,
+          "--quantity": images.length +1 ,
         } as React.CSSProperties}
         data-reverse={reverse ? "true" : "false"}
       
