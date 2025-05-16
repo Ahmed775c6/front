@@ -1,5 +1,5 @@
 import { motion, useMotionValue } from "framer-motion";
-import { addToCart } from "../Logic/utils";
+
 import { useEffect, useRef, useState } from "react";
 type SliderProps = {
     images: any[];
@@ -33,20 +33,7 @@ type SliderProps = {
       
       
   
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 10 }}
-        whileHover={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        className="absolute top-36 right-0 w-full p-2 flex flex-col  bg-white shadow-xs rounded-none"
-      >
-        <p className="text-sm font-semibold text-gray-800 text-left">
-          {src.name}
-        </p>
-      <div className="w-full flex justify-between">
-      <span className="text-md font-medium  text-blue-700">{src.currentPrice} TND</span>
-      <i className=" bg-emerald-500 text-emerald-300 w-10 h-10 rounded-full float-end text-sm p-1  ri-shopping-cart-line cursor-pointer" onClick={()=>{addToCart(src)}}></i>
-      </div>
-      </motion.div>
+  
          <img src={src.mainImage} alt="slider image " className=" w-[250px] h-[250px] object-contain"  />
     </div>
 
