@@ -8,11 +8,11 @@ type SliderProps = {
     reverse?: boolean;
   };
   
-  const Slider: React.FC<SliderProps> = ({ images, width, height, reverse }) => {
+  const Slider: React.FC<SliderProps> = ({ images, width, height, reverse  }) => {
 
     return (
       <div
-        className="slider"
+        className="slider gap-3"
         style={{
           "--width": `${width}px`,
           "--height": `${height}px`,
@@ -23,10 +23,10 @@ type SliderProps = {
       >
         <div className="list">
           {images.map((src, index) => (
-            <div key={index} className="item border-none relative cursor-pointer" style={{ "--position": index + 1 } as React.CSSProperties} onClick={()=>{window.location.href = `/ViewProduct?id=${src._id}`}} >
- <div className="relative group">
+            <div key={index} className="item border-none relative cursor-pointer  " style={{ "--position": index + 1 } as React.CSSProperties} onClick={()=>{window.location.href = `/ViewProduct?id=${src._id}`}} >
+ <div className="relative group w-[250px] h-[250px] shrt bg-white  " >
  {
-            src.discount > 0 ?   <span className="purcentage absolute top-5 left-2 z-20 bg-rose-100 text-rose-500 p-1 rounded-full text-xs font-medium">
+            src.discount > 0 ?   <span className="purcentage absolute top-5 left-2 z-40 bg-rose-100 text-rose-500 p-1 rounded-full text-xs font-medium">
           ⚡  {src.discount} %
           </span> : null
           }
@@ -47,9 +47,10 @@ type SliderProps = {
       <i className=" bg-emerald-500 text-emerald-300 w-10 h-10 rounded-full float-end text-sm p-1  ri-shopping-cart-line cursor-pointer" onClick={()=>{addToCart(src)}}></i>
       </div>
       </motion.div>
+         <img src={src.mainImage} alt="slider image " className=" w-[250px] h-[250px] object-contain"  />
     </div>
 
-              <img src={src.mainImage} alt="slider image "  />
+           
       
             </div>
           ))}
@@ -71,12 +72,13 @@ type SliderProps = {
         <Slider
           images={pr }
           width={200}
-          height={200}
+          height={300}
+ 
           
         />
         <button onClick={()=> {
           window.location.href = `/shop?direction=Visage`
-        }} className='p-2 bg-white w-full rounded-3xl mt-auto'>
+        }} className='p-2 bg-white w-full rounded-3xl '>
         Découvrez tout</button>
       </main>
     );
