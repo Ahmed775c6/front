@@ -109,7 +109,7 @@ const visageScanner = ({p} :any) => {
         key="before"
         src="./assets/before2.png"
         alt="before"
-        loading="lazy"
+       
         className="absolute inset-0 rounded-md p-2 w-full h-full object-cover"
         initial={{ opacity: 1 }}
         animate={{ opacity: showAfter ? 0 : 1 }}
@@ -121,7 +121,7 @@ const visageScanner = ({p} :any) => {
         key="after"
         src="./assets/after.png"
         alt="after"
-        loading="lazy"
+       
         className="absolute rounded-md inset-0 p-2 w-full h-full object-cover"
         initial={{ opacity: 0 }}
         animate={{ opacity: showAfter ? 1 : 0 }}
