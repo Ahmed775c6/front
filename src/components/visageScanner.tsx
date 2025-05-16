@@ -112,7 +112,7 @@ const visageScanner = ({p} :any) => {
     }, [x]);
   return (
 <>
-<div className="w-full grid grid-cols-2  rounded-md xlsmj ">
+<div className="w-full grid grid-cols-2  rounded-md dsfq ">
     
 <div className="w-full  h-full p-4 gap-3 flex flex-col relative ">
 <label className="p-2 bg-[#144273] rounded-lg text-white w-fit ">Soin De Visage</label>

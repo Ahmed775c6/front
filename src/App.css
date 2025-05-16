@@ -4181,6 +4181,10 @@ grid-template-columns: repeat(5,1fr);
 }
 
 @media screen and  (max-width: 950px) {
+    .dsfq{
+        display: flex !important;
+        flex-direction: column !important;
+    }
     .header-links , .other-links{
       display: none;
     }
