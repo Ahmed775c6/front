@@ -77,7 +77,7 @@ const Hair = ({p } : any) => {
 
   return (
 <>
-<div className="w-full flex xlsmj  ">
+<div className="w-full  grid grid-cols-2  rounded-md dsfq  ">
     
 <div className="w-full h-full p-6 flex flex-col relative gap-3">
 <label className="p-2 bg-[#144273] rounded-lg text-white w-fit ">Coloration cheveux</label>
