@@ -120,6 +120,7 @@ const Blog = () => {
           totalPosts={totalProducts}
           postsPerPage={postsPerPage}
           currentPage={currentPage}
+          numbn={ Math.ceil(totalProducts / postsPerPage)}
           setCurrentPage={setCurrentPage}
         />
       </div>
