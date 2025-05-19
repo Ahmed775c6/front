@@ -27,6 +27,7 @@ const Shop = () => {
   const [showItem,setShowItem] = useState<any>(null) 
   const [Fst,setFST] = useState("-700px")
 const  [numbn,setNumbr] = useState(0)
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -44,7 +45,8 @@ const  [numbn,setNumbr] = useState(0)
           setTotalProducts(response.totalProducts);
           setLoading(false);
         }else{
-          const response = await GetP22(direction); 
+          console.log('direction',direction)
+          const response = await GetP22(direction,currentPage); 
            console.log('response',response)
           const productsData = response.data.map((product : any) => ({
             ...product,
@@ -129,6 +131,7 @@ const  [numbn,setNumbr] = useState(0)
             postsPerPage={postsPerPage}
             currentPage={currentPage}
             numbn = {numbn}
+            
             setCurrentPage={setCurrentPage}
           />
         </div>

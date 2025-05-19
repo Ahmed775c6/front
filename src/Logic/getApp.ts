@@ -32,10 +32,10 @@ export const GetP1 = async (page = 1, limit = 100) => {
     throw error;
   }
 };
-export const GetP22 = async (id :any) => {
+export const GetP22 = async (id :any,page:any) => {
   try {
-    const page = 1;
-    const limit = 10;
+    
+    const limit = 20;
  
     const response = await fetch(`${baseUrl}/ProductsPl2014?page=${page}&limit=${limit}&id=${id}`);
     const data = await response.json();

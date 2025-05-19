@@ -26,7 +26,9 @@ const Pagination: FC<PaginationProps> = ({
       {pages.map((page, index) => (
         <button
           key={index}
-          onClick={() => setCurrentPage(page)}
+          onClick={() =>{ setCurrentPage(page)}
+
+          }
           className={`w-11 h-11 ${
             currentPage === page
               ? "bg-[#144273] rounded-sm text-white"
