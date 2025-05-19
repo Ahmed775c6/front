@@ -89,6 +89,11 @@ const prevPageRef = useRef(currentPage);
   useEffect(() => {
   prevPageRef.current = currentPage;
 }, [currentPage]);
+// Add this useEffect for scroll behavior
+useEffect(() => {
+  // Scroll to top when page changes
+  window.scrollTo(0, 0);
+}, [currentPage]); // Trigger when currentPage changes
   return (
     <>
     {
