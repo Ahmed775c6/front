@@ -23,7 +23,8 @@ const Pagination: FC<PaginationProps> = ({
 
   return (
     <div className="flex gap-2 justify-center mt-4">
-      {pages.map((page, index) => (
+      {
+     pages.length > 1 ? pages.map((page, index) => (
         <button
           key={index}
           onClick={() =>{ setCurrentPage(page)}
@@ -37,7 +38,9 @@ const Pagination: FC<PaginationProps> = ({
         >
           {page}
         </button>
-      ))}
+      )) : ''
+      
+      }
     </div>
   );
 };
