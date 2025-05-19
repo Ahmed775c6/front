@@ -7,7 +7,7 @@ import Filter from "./ShopFilter";
 import { GetP1 ,GetP22} from "../../Logic/getApp";
 import Pagination from "../../components/Pagination";
 import ProductOverviewPopup from "../../components/Popup";
-
+import ProductSkeleton from "../../components/Skelton";
 
 const Shop = () => {
 
@@ -117,7 +117,13 @@ const  [numbn,setNumbr] = useState(0)
         <div className="w-full">
           <div className="grid grid-cols-3 gap-3 dkhdyh">
             {loading ? (
-              <>loading ...</>
+              <>{
+                Array.from({ length: 10 }, (_, index) => (
+                  <div className="w-full" key={index}>
+                    <ProductSkeleton />
+                  </div>
+                ))
+              }</>
             ) : (
               filteredProducts.map((product: any, index: any) => (
                 <div className="w-full" key={index}>
