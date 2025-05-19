@@ -4,7 +4,7 @@ const baseUrl = import.meta.env.VITE_API_BASE_URL;
 export const GetD = async function () {
   try {
     const response = await axios.get(`${baseUrl}/appData`);
-    console.log('g : ', response.data);
+ 
     return response.data.Data.Data;
   } catch (err) {
     console.log(err);
@@ -46,7 +46,7 @@ export const GetP22 = async (id :any,page:any) => {
   }
 };
 
-export const Blogs = async (page = 1, limit = 15) => {
+export const Blogs = async (page = 1, limit = 100) => {
   try {
     const response = await axios.get(`${baseUrl}/Blogs?page=${page}&limit=${limit}`);
     const data = await response.data;

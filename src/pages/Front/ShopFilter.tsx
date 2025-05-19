@@ -25,9 +25,10 @@ interface FilterProps {
   products: Product[];
   Fst : any;
   setFst : any;
+ 
 }
 
-const Filter: React.FC<FilterProps> = ({ setSelectedCategory,setSousCat,setBr, setPriceRange, priceRange, products , Fst,setFst } ) => {
+const Filter: React.FC<FilterProps> = ({ setSelectedCategory,setSousCat,setBr, setPriceRange, priceRange, products ,Fst,setFst } ) => {
   const categories = Array.from(new Set(products.map((product) => product.Categorie)));
   const Sous = Array.from(new Set(products.map((product) => product.sous)));
   const Brands = Array.from(new Set(products.map((product) => product.marques)));

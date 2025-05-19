@@ -22,7 +22,7 @@ const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(25);
+  const [postsPerPage] = useState(100);
   const [totalProducts, setTotalProducts] = useState(0);
   const [showItem,setShowItem] = useState<any>(null) 
   const [Fst,setFST] = useState("-700px")
@@ -48,7 +48,7 @@ const prevPageRef = useRef(currentPage);
         }else{
       
           const response = await GetP22(direction,currentPage); 
-           console.log('response',response)
+         
           const productsData = response.data.map((product : any) => ({
             ...product,
             currentPrice: Number(product.currentPrice), // Convert price to number
@@ -64,7 +64,7 @@ const prevPageRef = useRef(currentPage);
       }
     };
     fetchProducts();
-  }, [currentPage, postsPerPage]); // Re-fetch when currentPage or postsPerPage changes
+  }, [currentPage, postsPerPage]); 
 
   useEffect(() => {
     if (products.length > 0) {
@@ -89,11 +89,11 @@ const prevPageRef = useRef(currentPage);
   useEffect(() => {
   prevPageRef.current = currentPage;
 }, [currentPage]);
-// Add this useEffect for scroll behavior
+
 useEffect(() => {
-  // Scroll to top when page changes
+
   window.scrollTo(0, 0);
-}, [currentPage]); // Trigger when currentPage changes
+}, [currentPage]); 
   return (
     <>
     {
@@ -116,6 +116,7 @@ useEffect(() => {
           setPriceRange={setPriceRange}
           priceRange={priceRange}
           products={products}
+       
           Fst={Fst}
           setFst={ setFST}
         />
