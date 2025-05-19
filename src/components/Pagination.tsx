@@ -4,6 +4,7 @@ interface PaginationProps {
   totalPosts: number;
   postsPerPage: number;
   currentPage: number;
+  numbn : number;
   setCurrentPage: (page: number) => void;
 }
 
@@ -11,10 +12,12 @@ const Pagination: FC<PaginationProps> = ({
   totalPosts,
   postsPerPage,
   currentPage,
+  numbn,
   setCurrentPage,
 }) => {
   const pages = [];
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = 1; i <= numbn; i++) {
+    console.log(Math.ceil(totalPosts / postsPerPage));
     pages.push(i);
   }
 
