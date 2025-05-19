@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import Navbar from "../../components/Navbar";
 import BrandsLinks from "../../components/BrandsLinks";
 import Footer from "../../components/Footer";
@@ -28,6 +28,7 @@ const Shop = () => {
   const [Fst,setFST] = useState("-700px")
 const  [numbn,setNumbr] = useState(0)
 
+const prevPageRef = useRef(currentPage);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -45,7 +46,7 @@ const  [numbn,setNumbr] = useState(0)
           setTotalProducts(response.totalProducts);
           setLoading(false);
         }else{
-          console.log('direction',direction)
+      
           const response = await GetP22(direction,currentPage); 
            console.log('response',response)
           const productsData = response.data.map((product : any) => ({
@@ -85,7 +86,9 @@ const  [numbn,setNumbr] = useState(0)
     );
     setFilteredProducts(filtered);
   }, [products, priceRange, selectedCategory, selectedsous, selectedBRand]); // Updated dependency array
-  
+  useEffect(() => {
+  prevPageRef.current = currentPage;
+}, [currentPage]);
   return (
     <>
     {
@@ -116,7 +119,7 @@ const  [numbn,setNumbr] = useState(0)
 
         <div className="w-full">
           <div className="grid grid-cols-3 gap-3 dkhdyh">
-            {loading ? (
+            {loading || currentPage !== prevPageRef.current? (
               <>{
                 Array.from({ length: 10 }, (_, index) => (
                   <div className="w-full" key={index}>
