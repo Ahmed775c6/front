@@ -96,6 +96,7 @@ useEffect(() => {
 }, [currentPage]); 
   return (
     <>
+
     {
   showItem ? <ProductOverviewPopup  product = {showItem} onClose = {()=>{setShowItem(null)}} /> : ''
 }
@@ -124,6 +125,12 @@ useEffect(() => {
        }
 
         <div className="w-full">
+        {
+  !loading && filteredProducts.length == 0 ?        <div className="w-full p-3  flex flex-col gap-3 justify-center  text-center items-center">
+                <p>il n'y a pas de produits correspondants, contacter nous pour  envoyez un ordre spécial ..</p>
+
+              </div> : null
+        }
           <div className="grid grid-cols-3 gap-3 dkhdyh">
             {loading || currentPage !== prevPageRef.current? (
               <>{
@@ -134,11 +141,12 @@ useEffect(() => {
                 ))
               }</>
             ) : (
+            filteredProducts.length > 0 ?
               filteredProducts.map((product: any, index: any) => (
                 <div className="w-full" key={index}>
                   <Product product={product} seti = {setShowItem} />
                 </div>
-              ))
+              )) : null
             )}
           </div>
           <Pagination

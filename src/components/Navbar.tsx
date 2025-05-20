@@ -1,4 +1,4 @@
-import { useState,useEffect,useContext } from "react";
+import { useState, useLayoutEffect,useContext } from "react";
 import Carte from "./Carte";
 import Login from "./Login";
 import SignupForm from "./SignupForm";
@@ -7,9 +7,10 @@ import Contact from "../pages/Contact";
 import { Links } from "../Logic/getApp";
 import {   useSelector } from "react-redux";
 
-import { LVG } from "../Logic/getApp";
+import { LVG , Names } from "../Logic/getApp";
 
 import MobileCategoryMenu from "./MobileMenu";
+
 
 
 const Navbar = ( ) => {
@@ -22,20 +23,22 @@ const [Gratuit,setGratuit] = useState<any>(0);
 const [showp,setShowp] = useState(false);
 const [showO,setShowO] = useState(false);
 const [contactView,setContact] = useState(false);
-
+const [focus,setFocus] = useState(false);
 const [links,setLinks] = useState<any>([]);
 const [Sv,setSv] = useState('');
 const [hImg,setHimg] = useState<any>([])
 const [Menu,setMenu] = useState(false);
-
-useEffect(() => {
+const [SNames,setSnames] = useState <any>([])
+useLayoutEffect(() => {
 
   const FetchL = async() =>{
     const W = await Links();
     const G = await LVG();
+    const S = await Names();
     setLinks(W.requiredData);
     setHimg(W.images)
     setGratuit(G);
+    setSnames(S)
   }
   FetchL();
 
@@ -143,8 +146,8 @@ const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
      
         </div>
 
-        <div className="flex w-full bg-gray-100">
-          <form className="w-full flex" onSubmit={handelSrarh} >
+        <div className="flex w-full  bg-gray-100">
+          <form className="w-full flex relative" onSubmit={handelSrarh} >
             <input
               type="text"
               id="search"
@@ -152,10 +155,29 @@ const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
               className="p-3 w-full flex  bg-gray-100 outline-none border-none "
               placeholder="Recherche ..."
               value={Sv}
-              onChange={(e:any)=>{setSv(e.target.value)}}
+              onChange={(e:any)=>{setSv(e.target.value) 
+if(e.target.value != ''){
+  setFocus(true)
+}else {
+  setFocus(false)
+}
+
+              } }
             />
             <i className="ri-search-line text-white p-3 cursor-pointer bg-[#144273]" onClick={()=>{window.location.href = `/shop?direction=${Sv}`}}></i>
-            <div className="suggestions" id="suggestions"></div>
+            <div className={`top-10  bg-white z-10 shadow-sm left-0 w-full flex-col gap-2 p-3 absolute visible opacity-1 ${focus == true ? 'flex' : 'hidden'}`} id="suggestions">
+{
+  SNames.map((item :any,index:any)=>{
+    return (
+      <>
+      <p onClick={()=>{
+        window.location.href =`/ViewProduct?id=${item.id}`
+      }} key={`sugg-${index}`} className="p-2 cursor-pointer hover:text-white transition-all rounded-sm hover:bg-blue-900 flex gap-2"> <img src={item.mainImg} alt="product-img" className="w-5 h-5 rounded-sm" loading="lazy" /> {item.name} </p>
+      </>
+    )
+  })
+}       
+            </div>
           </form>
         </div>
 

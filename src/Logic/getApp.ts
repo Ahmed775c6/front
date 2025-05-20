@@ -106,6 +106,15 @@ export const LVG = async () => {
   }
 };
 
+export const Names = async () => {
+  try {
+    const Responde = await axios.get(`${baseUrl}/names`);
+    return Responde.data.message;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const BrandsCC = async () => {
   try {
     const D = await axios.get(`${baseUrl}/brands`);

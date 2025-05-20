@@ -14,6 +14,7 @@ import AuthContext from "../../context/AuthProvider"
 
 
 
+
 const Home = () => {
   const [Loading,setLoading] = useState(true);
   const [products, setProducts] = useState<any | []>([]); 
@@ -30,7 +31,8 @@ useLayoutEffect(() => {
       const response = await GetP();
       const b = await Blogs();
       setArt(b.data);
-      setProducts(response); 
+      setProducts(response);
+
     } catch (error) {
       console.error("Error fetching products:", error);
     }
@@ -56,7 +58,7 @@ useLayoutEffect(() => {
 }
 
 
- <Navbar />
+ <Navbar  />
 
  <MainSection products ={products} blogs = {art} />
 
