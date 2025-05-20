@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect,useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Aside from "../components/AdmiComponents/Aside";
 import Nav from "../components/AdmiComponents/Nav";
@@ -38,7 +38,7 @@ const [AsideT, setAside] = useState(false)
 
 const [Changing,setChanging] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getClients = async () => {
       const data = await fetchClients();
       setCustomers(data);
@@ -51,7 +51,7 @@ const [Changing,setChanging] = useState(false);
 
  
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getClients = async () => {
       const data = await fetchClients();
       setCustomers(data);
@@ -168,7 +168,7 @@ const [Changing,setChanging] = useState(false);
                         </motion.div>
                       ))
                     ) : (
-                      <p className="text-center text-gray-500 col-span-3">No customers found.</p>
+                      <p className="text-center text-gray-500 col-span-3">just a sec ...</p>
                     )}
                   </motion.div>
                 </div>
