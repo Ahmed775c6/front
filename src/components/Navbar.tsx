@@ -29,6 +29,7 @@ const [Sv,setSv] = useState('');
 const [hImg,setHimg] = useState<any>([])
 const [Menu,setMenu] = useState(false);
 const [SNames,setSnames] = useState <any>([])
+const [Load,setLoad] = useState(true);
 useLayoutEffect(() => {
 
   const FetchL = async() =>{
@@ -39,6 +40,7 @@ useLayoutEffect(() => {
     setHimg(W.images)
     setGratuit(G);
     setSnames(S)
+    setLoad(false)
   }
   FetchL();
 
@@ -165,19 +167,30 @@ if(e.target.value != ''){
               } }
             />
             <i className="ri-search-line text-white p-3 cursor-pointer bg-[#144273]" onClick={()=>{window.location.href = `/shop?direction=${Sv}`}}></i>
-            <div className={`top-10  bg-white z-10 shadow-sm left-0 w-full max-h-[350px] overflow-visible flex-col gap-2 p-3 absolute visible opacity-1 ${focus == true ? 'flex' : 'hidden'}`} id="suggestions">
-{
-  SNames.map((item :any,index:any)=>{
-    return (
-      <>
-      <p onClick={()=>{
-        window.location.href =`/ViewProduct?id=${item.id}`
-      }} key={`sugg-${index}`} className="p-2 cursor-pointer hover:text-white transition-all rounded-sm hover:bg-blue-900 flex gap-2"> <img src={item.mainImg} alt="product-img" className="w-5 h-5 rounded-sm" loading="lazy" /> {item.name} </p>
-      </>
-    )
-  })
-}       
-            </div>
+<div 
+  className={`top-10 bg-white z-10 shadow-sm left-0 w-full max-h-[350px] overflow-y-auto flex-col gap-2 p-3 absolute visible opacity-1 ${focus ? 'flex flex-col' : 'hidden'}`} 
+  id="suggestions"
+>
+  {
+  !Load ?
+  SNames.map((item: any, index: any) => (
+    <p 
+      onClick={() => {
+        window.location.href = `/ViewProduct?id=${item.id}`
+      }} 
+      key={`sugg-${index}`} 
+      className="p-2 cursor-pointer hover:text-white transition-all rounded-sm hover:bg-blue-900 flex gap-2"
+    >
+      <img 
+        src={item.mainImg} 
+        alt="product-img" 
+        className="w-5 h-5 rounded-sm" 
+        loading="lazy" 
+      /> 
+      {item.name}
+    </p>
+  )) : 'loading ..'}       
+</div>
           </form>
         </div>
 
