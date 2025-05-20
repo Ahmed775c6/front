@@ -167,26 +167,35 @@ if(e.target.value != ''){
               } }
             />
             <i className="ri-search-line text-white p-3 cursor-pointer bg-[#144273]" onClick={()=>{window.location.href = `/shop?direction=${Sv}`}}></i>
-<div className={`top-10 bg-white z-10 shadow-sm left-0 w-full max-h-[350px] overflow-y-auto flex-col gap-2 p-3 absolute visible opacity-1 ${focus ? 'flex flex-col' : 'hidden'}`} id="suggestions">
-  {
-  !Load ?
-  SNames
-    .filter((item: any) => 
-      item.name.toLowerCase().includes(Sv.toLowerCase())
-    )
-    .map((item: any, index: any) => (
-      <p 
-        onClick={() => {
-          window.location.href = `/ViewProduct?id=${item.id}`
-        }} 
-        key={`sugg-${index}`} 
-        className="p-2 cursor-pointer hover:text-white transition-all rounded-sm hover:bg-blue-900 flex gap-2"
-      >
-        <img src={item.mainImg} alt="product-img" className="w-5 h-5 rounded-sm" loading="lazy" /> 
-        {item.name}
-      </p>
-    )) : 'Chargement ...'
-  }       
+<div className={`top-10 bg-white z-50 shadow-sm left-0 w-full max-h-[350px] overflow-y-auto flex-col gap-2 p-3 absolute visible opacity-1 ${focus ? 'flex flex-col' : 'hidden'}`} id="suggestions">
+  {!Load ? SNames
+    .filter((item: any) => item.name.toLowerCase().includes(Sv.toLowerCase()))
+    .map((item: any, index: any) => {
+      const name = item.name;
+      const lowerName = name.toLowerCase();
+      const lowerSv = Sv.toLowerCase();
+      const startIndex = lowerName.indexOf(lowerSv);
+      
+      return (
+        <p 
+          onClick={() => window.location.href = `/ViewProduct?id=${item.id}`} 
+          key={`sugg-${index}`} 
+          className="p-2 cursor-pointer hover:text-white transition-all rounded-sm hover:bg-blue-900 flex gap-2"
+        >
+          <img src={item.mainImg} alt="product-img" className="w-5 h-5 rounded-sm" loading="lazy" />
+          {startIndex !== -1 ? (
+            <>
+              {name.substring(0, startIndex)}
+              <span className="font-semibold bg-yellow-200">
+                {name.substring(startIndex, startIndex + Sv.length)}
+              </span>
+              {name.substring(startIndex + Sv.length)}
+            </>
+          ) : name}
+        </p>
+      );
+    })
+  : 'Chargement ...'}
 </div>
           </form>
         </div>
