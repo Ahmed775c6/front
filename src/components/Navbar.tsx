@@ -165,7 +165,7 @@ if(e.target.value != ''){
               } }
             />
             <i className="ri-search-line text-white p-3 cursor-pointer bg-[#144273]" onClick={()=>{window.location.href = `/shop?direction=${Sv}`}}></i>
-            <div className={`top-10  bg-white z-10 shadow-sm left-0 w-full flex-col gap-2 p-3 absolute visible opacity-1 ${focus == true ? 'flex' : 'hidden'}`} id="suggestions">
+            <div className={`top-10  bg-white z-10 shadow-sm left-0 w-full max-h-[350px] overflow-visible flex-col gap-2 p-3 absolute visible opacity-1 ${focus == true ? 'flex' : 'hidden'}`} id="suggestions">
 {
   SNames.map((item :any,index:any)=>{
     return (
