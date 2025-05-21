@@ -17,6 +17,7 @@ useLayoutEffect(() => {
             const response = await axios.get(`${baseUrl}/makepData`);
             setProducts(response.data.message); 
             setLoading(false);
+            console.log('wtf ; ', response.data)
         } catch (error) {
             console.error("Error fetching products:", error);
         }
