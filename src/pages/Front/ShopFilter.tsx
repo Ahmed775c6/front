@@ -53,7 +53,7 @@ const Filter: React.FC<FilterProps> = ({ setSelectedCategory,setSousCat,setBr, s
           className="w-full p-2 border rounded-sm"
           onChange={(e) => setSelectedCategory(e.target.value || null)}
         >
-          <option value="">All Categories</option>
+          <option value="">Tous Categories</option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -62,12 +62,12 @@ const Filter: React.FC<FilterProps> = ({ setSelectedCategory,setSousCat,setBr, s
         </select>
       </div>
       <div className="mb-4">
-        <h2 className="font-semibold mb-2">Sous Categorie</h2>
+        <h2 className="font-semibold mb-2">Toutes les catégories</h2>
         <select
           className="w-full p-2 border rounded-sm"
           onChange={(e) => setSousCat(e.target.value || null)}
         >
-          <option value="">All </option>
+          <option value="">Tout </option>
           {Sous.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -81,7 +81,7 @@ const Filter: React.FC<FilterProps> = ({ setSelectedCategory,setSousCat,setBr, s
           className="w-full p-2 border rounded-sm"
           onChange={(e) => setBr(e.target.value || null)}
         >
-          <option value="">All </option>
+          <option value="">Tout </option>
           {Brands.map((category) => (
             <option key={category} value={category}>
               {category}
