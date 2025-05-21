@@ -309,7 +309,7 @@ display : `${auth?.user == null ? 'none' : "flex"}`  , height : '25px !important
       { id: "bebe", text: "Bébé et Maman", query: "Bebe-maman" },
       { id: "complement", text: "Compléments Alimentaires", query: "complements-alimentaires" },
       { id: "hygiene", text: "Hygiène", query: "Hygiene" },
-      { id: "solaire", text: "Solaire", query: "Solaires" },
+      { id: "solaire", text: "Solaire", query: "Solaire" },
       { id: "bio", text: "Bio et Nature", query: "bio-nature" },
       { id: "medical", text: "Matériel Médical", query: "materiels-medical" },
       { id: "homme", text: "Homme", query: "Homme" },

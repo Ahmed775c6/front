@@ -18,7 +18,7 @@ const MobileCategoryMenu = ({ links , setclose } :any) => {
           { id: "bebe", text: "Bébé et Maman", query: "Bebe" },
           { id: "complement", text: "Compléments Alimentaires", query: "Complement" },
           { id: "hygiene", text: "Hygiène", query: "Hygiene" },
-          { id: "solaire", text: "Solaire", query: "Solaires" },
+          { id: "solaire", text: "Solaire", query: "Solaire" },
           { id: "bio", text: "Bio et Nature", query: "Bioetnature" },
           { id: "medical", text: "Matériel Médical", query: "Medical" },
           { id: "homme", text: "Homme", query: "Homme" },
