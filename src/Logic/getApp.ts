@@ -21,6 +21,17 @@ export const GetP = async function () {
     return err;
   }
 };
+export const GetBx = async function () {
+  try {
+        const response = await axios.get(`${baseUrl}/brands`);
+console.log(response.data)
+    return response.data.message;
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+};
+
 
 export const GetP1 = async (page = 1, limit = 100) => {
   try {

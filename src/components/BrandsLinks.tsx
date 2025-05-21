@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import axios from "axios";
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
@@ -92,10 +92,11 @@ const BrandsLinks = () => {
   const [brandsList, setBrandsList] = useState<any>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const fetchBrands = async () => {
       try {
         const response = await axios.get(`${baseUrl}/brands`);
+       
         setBrandsList(response.data.message);
       } catch (error) {
         console.error('Error fetching brands:', error);

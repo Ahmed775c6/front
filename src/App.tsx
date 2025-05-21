@@ -17,8 +17,10 @@ const TermsAndFAQ = lazy(() => import("./pages/Front/Lagels"));
 const Blog = lazy(() => import("./pages/Front/blog"));
 const Blog_item = lazy(() => import("./pages/Front/Blog_item"));
 const  MAKEUP = lazy(() => import("./pages/Makeup"));
+const  BrandsPage = lazy(() => import("./pages/Front/Brands"));
 
 // Static imports for protected routes and admin components
+
 import Admin from "./Adminsator/Admin";
 import AppEdit from "./Adminsator/AppEdit";
 import AddProduct from "./Adminsator/AddProduct";
@@ -51,6 +53,7 @@ function App() {
         <Routes>
           {/* Unprotected Routes */}
           <Route path="/" element={<Home />} />
+           <Route path="/brands" element={<BrandsPage />} />
           <Route path="/home" element={<Home />} />
           <Route path="/admin" element={<Auth />} />
           <Route path="/cart" element={<Cart />} />
